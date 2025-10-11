@@ -11,7 +11,7 @@ This folder contains all R scripts used to generate, run, and analyze the simula
 
 | File | Description |
 |------|--------------|
-| `df_sim.R` | Runs degrees-of-freedom (df) estimation simulations. |
+| `df_sim.R` | Runs degrees-of-freedom ($\nu$) estimation simulations. |
 | `df_sim_results.R` | Analyzes and summarizes df simulation results. |
 | `beta_tnormal_error_sim.R` | Simulates regression coefficient ($\beta$) estimation with *t*-distributed and normal errors. |
 | `beta_stackloss_sim.R` | Simulates $\beta$ estimation using the real Stackloss dataset. |
@@ -55,7 +55,7 @@ We explored five Frequentist and Bayesian approaches for estimating $\nu$ under 
 
 The analyses in this project include:
 
-- **Estimation of degrees of freedom ($\nu$)** using five approaches:  
+- **Estimation of degrees of freedom ($\nu$)** using five approaches with $\omega = \frac{1}{\nu} reparamatrization$:  
   - Profile likelihood  
   - Adjusted profile likelihood  
   - Independence Jeffreys  
@@ -76,7 +76,7 @@ The analyses in this project include:
 Simulation settings included:
 - Heavy-tailed *t*(2) and normal errors  
 - Real-data Stackloss experiments  
-- High-dimensional settings (varying $p/n$ ratios)  
+- High-dimensional settings (varying $\frac{p}{n}$ ratios)  
 - Contaminated errors (from $N(0,9)$, *t*(2), $\chi^2(4)-4$, and two-point mixtures)  
   with contamination rates of 10%, 20%, and 30%  
 
