@@ -82,7 +82,7 @@ This folder contains all R scripts used to generate, run, and analyze the simula
 | `df_sim_results.R` | Analyzes and summarizes df simulation results. |
 | `beta_tnormal_error_sim.R` | Simulates regression coefficient ($\beta$) estimation with *t*-distributed and normal errors. |
 | `beta_stackloss_sim.R` | Simulates $\beta$ estimation using the real Stackloss dataset. |
-| `beta_contaminated_error_sim.R` | Simulates $\beta$ estimation under contaminated non-*t* error structures. |
+| `beta_contaminated_error_sim.R` | Simulates $\beta$ estimation under contaminated error structures. |
 | `beta_sim_results.R` | Summarizes and visualizes $\beta$ estimation results. |
 
 ---
@@ -96,7 +96,7 @@ This folder includes `.Rda` files generated from simulation runs. Each subfolder
 | `beta terror data/` | Results from $\beta$ estimation under *t*-distributed errors. |
 | `beta normal error data/` | Results from $\beta$ estimation under normal errors. |
 | `beta stackloss data/` | Results from $\beta$ estimation using the Stackloss dataset. |
-| `beta contaminated error data/` | Results from $\beta$ estimation under contaminated non-*t* errors. |
+| `beta contaminated error data/` | Results from $\beta$ estimation under contaminated errors. |
 
 Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) contains example `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) representing repeated simulation runs for robustness evaluation.
 
