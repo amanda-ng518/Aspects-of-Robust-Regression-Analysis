@@ -46,8 +46,7 @@ Simulation settings included:
 - Heavy-tailed *t*(2) and normal errors  
 - Real-data Stackloss experiments  
 - High-dimensional settings (varying $\frac{p}{n}$ ratios)  
-- Contaminated errors (from $N(0,9)$, *t*(2), $\chi^2(4)-4$, and two-point mixtures)  
-  with contamination rates of 10%, 20%, and 30%  
+- Errors from $N(0,9)$, *t*(2), $\chi^2(4)-4$, and two-point (-5 or 5) with contamination rates of 10%, 20%, and 30%  
 
 --- 
 
