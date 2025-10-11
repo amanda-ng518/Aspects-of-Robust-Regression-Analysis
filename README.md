@@ -1,100 +1,104 @@
 # Aspects of Robust Regression
 
-This repository contains code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. The goal of this project is to explore the robustness of degree of freedom ($\nu$) and regression coefficient ($\beta$) estimators under different error distributions and contamination settings.
+This repository contains code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. The goal of this project is to evaluate the robustness of **degrees-of-freedom ($\nu$)** and **regression coefficient ($\beta$)** estimators under different error distributions and contamination settings.
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ### **R Codes/**
 This folder contains all R scripts used to generate, run, and analyze the simulations.
 
 | File | Description |
 |------|--------------|
-| `df_sim.R` | Conducts degrees-of-freedom (df) estimation simulations.|
-| `df_sim_results.R` | Analyzes and summarizes df simulation outcomes. |
-| `beta_tnormal_error_sim.R` | Conducts regression coefficient ($\beta$) estimation simulations on data with t-distributed and normal errors. |
-| `beta_stackloss_sim.R` | Conducts regression coefficient ($\beta$) estimation simulations on real Stackloss dataset. |
-| `beta_contaminated_error_sim.R` | Conducts regression coefficient ($\beta$) estimation simulations on data with contaminated non-t errors. |
-| `beta_sim_results.R` | Summarizes and visualizes simulation results for regression coefficient estimates. |
+| `df_sim.R` | Runs degrees-of-freedom (df) estimation simulations. |
+| `df_sim_results.R` | Analyzes and summarizes df simulation results. |
+| `beta_tnormal_error_sim.R` | Simulates regression coefficient ($\beta$) estimation with *t*-distributed and normal errors. |
+| `beta_stackloss_sim.R` | Simulates $\beta$ estimation using the real Stackloss dataset. |
+| `beta_contaminated_error_sim.R` | Simulates $\beta$ estimation under contaminated non-*t* error structures. |
+| `beta_sim_results.R` | Summarizes and visualizes $\beta$ estimation results. |
 
 ---
 
 ### **Sample Data/**
-This folder includes data files in `.Rda` produced from simulation runs. Each subfolder corresponds to a specific simulation setting.
+This folder includes `.Rda` files generated from simulation runs. Each subfolder corresponds to a specific simulation setting.
 
 | Folder | Description |
 |---------|--------------|
-| `df data/` | Contains simulation results about df estimation. |
-| `beta terror data/` | Contains simulation results about $\beta$ estimation in data with t error. |
-| `beta normal error data/` | Contains simulation results about $\beta$ estimation in data with normal error. |
-| `beta stackloss data/` | Contains simulation results about $\beta$ estimation in Stackloss dataset. |
-| `beta contaminated error data/` | Contains beta estimation simulation results in data with contaminated non-t error structures. |
+| `df data/` | Results from df estimation simulations. |
+| `beta terror data/` | Results from $\beta$ estimation under *t*-distributed errors. |
+| `beta normal error data/` | Results from $\beta$ estimation under normal errors. |
+| `beta stackloss data/` | Results from $\beta$ estimation using the Stackloss dataset. |
+| `beta contaminated error data/` | Results from $\beta$ estimation under contaminated non-*t* errors. |
 
-Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) stores a small portion of sample `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) corresponding to repeated runs for robustness evaluation. 
-
----
-
-## 🧠 Project Overview
-
-This project considers a **comparison of Bayesian and frequentist methods** for robust regression. It involves a mix of theoretical analysis and simulations, with an emphasis on **high-dimensional regression with regularization**.  Comparing Bayesian and frequentist approaches is of interest both for the **foundations of inference** and for the **practical assessment of the reliability of Bayesian approaches**; the latter is closely related to the asymptotic theory of likelihood-based inference. Robust regression methods are an important technique for ensuring that statistical conclusions remain valid even when the model used for inference differs from the model generating the data.  New methods and theory for high-dimensional regression are an area of active development, and **robustness in this setting** is of particular interest.
-
-Robust regression methods aim to reduce the influence of outliers and deviations from model assumptions (e.g., normality of errors).  
-In this project, we:
-
-- Compare classical and robust regression estimators under various error distributions.  
-- Evaluate sensitivity to contamination and heavy tails using simulation studies.  
-- Summarize estimator performance through bias, variance, and mean squared error (MSE) metrics.  
+Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) contains example `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) representing repeated simulation runs for robustness evaluation.
 
 ---
 
-## 🧩 Methods & Models
+## Project Overview
 
-The project explores:
-- **Ordinary Least Squares (OLS)** under ideal conditions.  
-- **Robust alternatives** (e.g., M-estimators) under contamination or t-distributed noise.  
-- The impact of sample contamination on estimator efficiency.  
+This project compares **Bayesian** and **frequentist** approaches to robust regression through a combination of theoretical analysis and simulation studies, with an emphasis on **high-dimensional regression with regularization**.
 
-Simulation setups include:
-- Contaminated normal errors  
-- Heavy-tailed t-distributed errors  
-- Real-data-based Stackloss experiments  
+The comparison is motivated by both:
+- foundational differences in inference between Bayesian and frequentist frameworks, and  
+- the practical need to assess the reliability and robustness of Bayesian methods.  
+
+Robust regression methods help ensure that statistical conclusions remain valid even when the model used for inference deviates from the data-generating process. High-dimensional regression poses additional challenges, making **robustness** a particularly important focus in this work.
+
+In regression analysis, the primary objective is typically the estimation of the regression coefficients $\beta$, which characterize the relationship between the predictors and the response variable. In this project, we propose a two-stage procedure under the student's-$t$ regression framework as follows: we first estimate the degrees of freedom parameter $\nu$, and then use this estimate to infer the regression coefficients $\beta$.
+
+We explored five Frequentist and Bayesian approaches for estimating $\nu$ under the Student's-$t$ regression model and conduct simulations to evaluate their performance. From the simulations, we demonstrate that our proposed procedure yields superior estimation of $\beta$ compared to existing methods, using both simulated and real datasets. Notably, in high-dimensional settings, the adjusted profile likelihood approach performs comparably to the widely-used robust regression method, Huber regression. We also assessed the robustness of our proposed methods in the presence of outliers.
 
 ---
 
-## ⚙️ How to Run
+## Methods & Models
 
-1. Open the `R Codes/` directory.
-2. Run the desired simulation file (e.g., `beta_tnormal_error_sim.R`) in R.
-3. Results are automatically saved in the corresponding subfolder under `Sample Data/`.
-4. Use `beta_sim_results.R` or `df_sim_results.R` to summarize or visualize simulation outcomes.
+The analyses in this project include:
 
-Example:
+- **Estimation of degrees of freedom ($\nu$)** using five approaches:  
+  - Profile likelihood  
+  - Adjusted profile likelihood  
+  - Independence Jeffreys  
+  - Marginal Jeffreys  
+  - Marginal Fisher  
+
+  These estimated $\nu$ values were then used in *t*-regression models to estimate $\beta$ coefficients.
+
+- **Comparison of regression methods:**  
+  - Traditional methods: OLS, *t*-regression (fixed $\nu$), and Huber regression  
+  - Our proposed Two-stage methods using estimated $\nu$
+
+- **Evaluation metrics:**  
+  - Bias  
+  - Variance  
+  - Root mean squared error (RMSE)
+
+Simulation settings included:
+- Heavy-tailed *t*(2) and normal errors  
+- Real-data Stackloss experiments  
+- High-dimensional settings (varying $p/n$ ratios)  
+- Contaminated errors (from $N(0,9)$, *t*(2), $\chi^2(4)-4$, and two-point mixtures)  
+  with contamination rates of 10%, 20%, and 30%  
+
+--- 
+
+## Dependencies & Requirements 
+
+The code is written in **R**. To run the scripts successfully, make sure you have the following R packages: 
+
+- **Required R packages** to run locally:
 ```r
-# Run simulation with t-distributed errors
-source("R Codes/beta_tnormal_error_sim.R")
-
-# Summarize results
-source("R Codes/beta_sim_results.R")
-
----
-
-## ⚙️ Dependencies & Requirements
-
-The code is written in **R**.  
-To run the scripts successfully, make sure you have the following environment:
-
-- **R version** ≥ 4.2.0  
-- **Required R packages**:
-  ```r
   install.packages(c(
     "MASS",
-    "ggplot2",
-    "dplyr",
-    "tidyr",
-    "gridExtra",
-    "reshape2"
+    "ggplot2"
   ))
+```
 
+- **Additional R packages** to run on server:
+```r
+  install.packages(c(
+    "doParallel",
+    "foreach",
+    "rlmDataDriven" ))
+```
 ---
-
