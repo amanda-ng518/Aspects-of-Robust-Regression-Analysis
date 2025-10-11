@@ -24,7 +24,7 @@ We explored five Frequentist and Bayesian approaches for estimating $\nu$ under 
 
 The analyses in this project include:
 
-- **Estimation of degrees of freedom ($\nu$)** using five approaches with $\omega = \frac{1}{\nu} reparamatrization$:  
+- **Estimation of degrees of freedom ($\nu$)** using five approaches with $\omega = \frac{1}{\nu}$ reparamatrization:  
   - Profile likelihood  
   - Adjusted profile likelihood  
   - Independence Jeffreys  
