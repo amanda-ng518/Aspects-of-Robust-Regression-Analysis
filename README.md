@@ -90,7 +90,7 @@ Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.
 
 ## Example
 
-The code below simulates data with t error.
+The code below simulates data with t error. Covariates x are generated from standard normal distribution.
 ```r
 # Simulate a set of data with 20 rows, 5 columns with true beta all set as 0 and t(2) error
 sim_data <- simulate_t_error_data(n = 20, p = 5, beta = rep(0,5), sigma = 1, nu = 2, seed = 123)
@@ -98,10 +98,10 @@ x <- sim_data$x
 y <- sim_data$y
 ```
 
-The code below simulates data with normal error and 20% contaminated two-point errors.
+The code below simulates data with standard normal error (controlled by `mean` and `sigma`) and 20% contaminated two-point errors.
 ```r
 # Simulate a set of data with 20 rows, 5 columns with true beta all set as 0 and t(2) error
-contam_sim_data <- simulate_contaminated_data(n = 300, p = 5, beta = rep(0, 5), mean = 0,
+contam_sim_data <- simulate_contaminated_data(n = 20, p = 5, beta = rep(0, 5), mean = 0,
                                        sigma = 1, contam_type = "twopt", NULL, contam_prob = 0.2,
                                        seed = NULL)
 x <- contam_sim_data$x
