@@ -1,6 +1,6 @@
 # Aspects of Robust Regression
 
-This repository contains R code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. 
+This repository contains R code and sample data for simulations and analyses related to the **Robust Regression with Student's $T$: The Role of Degrees of Freedom** paper. 
 
 ---
 
