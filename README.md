@@ -17,14 +17,6 @@ The code is written in **R**. To run the scripts successfully, make sure you hav
     "ggplot2"
   ))
 ```
-
-- **Additional R packages** to run on server:
-```r
-  install.packages(c(
-    "doParallel",
-    "foreach",
-    "rlmDataDriven" ))
-```
 ---
 
 ## Repository Structure
