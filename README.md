@@ -26,7 +26,7 @@ This folder contains all R scripts used to generate, run, and analyze the simula
 | File | Description |
 |------|--------------|
 | `data_simulation_functions.R` | Functions to simulate data with t errors, normal errors, contaminated errors. |
-| `helper_functions.R` | Helper functions that should be preloaded when running $\nu$ or $\beta$ estimations. |
+| `helper_functions.R` | Helper functions that should be preloaded before conducting $\nu$ or $\beta$ estimations. |
 | `nu_estimation_functions.R` | Functions to run $\nu$ estimations. |
 | `nu_sim_results.R` | Analyzes and summarizes $\nu$ simulation results about $\nu$. |
 | `beta_estimation_function.R` | Functions to run $\beta$ estimations. |
