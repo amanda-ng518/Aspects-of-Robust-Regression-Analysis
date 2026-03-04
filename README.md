@@ -2,10 +2,6 @@
 
 This repository contains R code and sample data for simulations and analyses related to the **Robust Regression with Student's $T$: The Role of Degrees of Freedom** paper. 
 
----
-
-## Project Overview
-
 Linear regression estimators are known to be sensitive to outliers, and one alternative to obtain a robust and efficient estimator of the regression parameter is to model the error with Student's $t$ distribution.  In this article, we compare estimators of the degrees of freedom parameter in the $t$ distribution using frequentist and Bayesian methods, and then study properties of the corresponding estimated regression coefficient. We also include the comparison with some recommended approaches in the literature, including fixing the degrees of freedom and robust regression using the Huber loss. 
 Our extensive simulations on both synthetic and real data demonstrate that estimating the degrees of freedom via the adjusted profile log-likelihood approach yields regression coefficient estimators with high accuracy, performing comparably to the maximum likelihood estimator where the degrees of freedom are fixed at their true values. These findings provide a detailed synthesis of $t$-based robust regression and underscore a key insight: the proper calibration of the degree of freedom is as crucial as the choice of the robust distribution itself for achieving optimal performance.
 
@@ -18,9 +14,8 @@ The analyses in this project include:
 - **Estimation of degrees of freedom ($\nu$)** using five approaches with $\omega = \frac{1}{\nu}$ reparamatrization:  
   - Profile likelihood  
   - Adjusted profile likelihood  
-  - Independence Jeffreys  
-  - Marginal Jeffreys  
-  - Marginal Fisher  
+  - Full Baues (Independence Jeffreys)  
+  - Pseudo Bayes (Marginal Fisher)  
 
   These estimated $\nu$ values were then used in *t*-regression models to estimate $\beta$ coefficients.
 
@@ -64,7 +59,7 @@ The code is written in **R**. To run the scripts successfully, make sure you hav
 
 ## Repository Structure
 
-### **R Codes/**
+### **R Codes**
 This folder contains all R scripts used to generate, run, and analyze the simulations.
 
 | File | Description |
@@ -78,7 +73,7 @@ This folder contains all R scripts used to generate, run, and analyze the simula
 
 ---
 
-### **Sample Data/**
+### **Sample Data**
 This folder includes `.Rda` files generated from simulation runs. Each subfolder corresponds to a specific simulation setting.
 
 | Folder | Description |
