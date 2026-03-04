@@ -7,7 +7,7 @@ Our extensive simulations on both synthetic and real data demonstrate that estim
 
 ---
 
-## Methods & Models
+## Methods
 
 The analyses in this project include:
 
@@ -87,3 +87,20 @@ This folder includes `.Rda` files generated from simulation runs. Each subfolder
 Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) contains example `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) representing repeated simulation runs for robustness evaluation.
 
 ---
+
+## A simulation example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
