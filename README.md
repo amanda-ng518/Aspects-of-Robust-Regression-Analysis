@@ -51,6 +51,7 @@ Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.
 ---
 ## Functions
 
+### $\nu$-estimation
 The following are the main R functions for estimating degrees of freedom ($\nu$) using four approaches with $\omega = \frac{1}{\nu}$ reparamatrization
 
 - `estimate_nu_profile()`: Profile likelihood  
@@ -58,8 +59,13 @@ The following are the main R functions for estimating degrees of freedom ($\nu$)
 - `estimate_nu_IJ()`: Full Bayes
 - `estimate_nu_nu_block()`: Pseudo Bayes
 
-These functions require inputs: `x`, `y` and starting point `omega_init`.
+These $\nu$-estimation functions require inputs: `x`, `y` and starting point `omega_init`. They output a list of: 
 
+- `omega`: optimal $\omega$
+- `nu`: optimal $\nu$ (essentially 1/ optimal $\omega$)
+- `convergence`: code to check BFGS convergence (0 if success)
+
+### $\beta$-estimation
 For regression coefficient ($\beta$) estimation, use `estimate_beta()`. Aside from `x`, `y` and starting point `omega_init`, you will need to specify
 the method to conduct $\nu$ estimation. The available methods include:
 
@@ -71,6 +77,15 @@ the method to conduct $\nu$ estimation. The available methods include:
 - "Pseudo Bayes"
 - any positive integer (interpreted as a fixed nu): $\hat \nu$ will be set as this fixed integer
 
+It outputs a list of : 
+
+- `method`: method used to estimate `nu`, same as your input `method`
+- `nu_hat`: optimal $\nu$ (essentially 1/ optimal $\omega$)
+- `beta_hat`: optimal $\beta$
+- `sigma_hat`: optimal $\sigma$
+- `success_nu`: Convergence code for $\nu$-estimation (0 if success)
+- `success_beta`: Convergence code for $\beta$-estimation (0 if success)
+    
 ---
 
 ## Example
