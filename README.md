@@ -108,9 +108,9 @@ x <- contam_sim_data$x
 y <- contam_sim_data$y
 ```
 
-The code below estimates $\nu$ using the profile likelihood approach.
-
 Note: Please load all functions in `helper_functions.R` before proceeding to the estimation steps.
+
+The code below estimates $\nu$ using the profile likelihood approach.
 
 ```r
 # Estimate nu with profile likelihood approach
