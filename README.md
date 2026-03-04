@@ -14,7 +14,7 @@ The analyses in this project include:
   - Profile likelihood  
   - Adjusted profile likelihood  
   - Full Baues (Independence Jeffreys)  
-  - Pseudo Bayes (Marginal Fisher)  
+  - Pseudo Bayes (with Nu block in observed Fisher information)  
 
   These estimated $\nu$ values were then used in *t*-regression models to estimate $\beta$ coefficients.
 
