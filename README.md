@@ -6,36 +6,6 @@ Linear regression estimators are known to be sensitive to outliers, and one alte
 
 ---
 
-## Methods
-
-The analyses in this project include:
-
-- **Estimation of degrees of freedom ($\nu$)** using five approaches with $\omega = \frac{1}{\nu}$ reparamatrization:  
-  - Profile likelihood  
-  - Adjusted profile likelihood  
-  - Full Baues (Independence Jeffreys)  
-  - Pseudo Bayes (with Nu block in observed Fisher information)  
-
-  These estimated $\nu$ values were then used in *t*-regression models to estimate $\beta$ coefficients.
-
-- **Comparison of regression methods:**  
-  - Traditional methods: OLS, *t*-regression (fixed $\nu$), and Huber regression  
-  - Our proposed Two-stage methods using estimated $\nu$
-
-- **Evaluation metrics:**  
-  - Bias  
-  - Standard error  
-  - Root mean squared error (RMSE)
-
-Simulation settings included:
-- Heavy-tailed *t*(2)
-- Normal errors  
-- Real-data Stackloss experiments  
-- High-dimensional settings (varying $\frac{p}{n}$ ratios)  
-- Errors from $N(0,9)$, *t*(2), $\chi^2(4)-4$, and two-point (-5 or 5) with contamination rates of 10%, 20%, and 30%
-  
---- 
-
 ## Dependencies & Requirements 
 
 The code is written in **R**. To run the scripts successfully, make sure you have the following R packages: 
@@ -87,6 +57,29 @@ This folder includes `.Rda` files generated from simulation runs. Each subfolder
 Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) contains example `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) representing repeated simulation runs for robustness evaluation.
 
 ---
+## Functions
+
+The following are the main R functions for estimating degrees of freedom ($\nu$) using four approaches with $\omega = \frac{1}{\nu}$ reparamatrization
+
+- estimate_nu_profile(): Profile likelihood  
+- `estimate_nu_adj_profile`: Adjusted profile likelihood
+- `estimate_nu_IJ`: Full Bayes
+- `estimate_nu_nu_block`: Pseudo Bayes
+
+These functions require inputs: `x`, `y` and starting point `omega_init`.
+
+For regression coefficient ($\beta$) estimation, use `estimate_beta()`. Aside from `x`, `y` and starting point `omega_init`, you will need to specify
+the method to conduct $\nu$ estimation. The available methods include:
+
+- "OLS": $\nu$ will not be estimated
+- "Huber": $\nu$ will not be estimated
+- "Profile"
+- "Adj profile"
+- "Full Bayes"
+- "Pseudo Bayes"
+- any positive integer (interpreted as a fixed nu): $\hat \nu$ will be set as this fixed integer
+
+---
 
 ## Example
 
@@ -108,11 +101,7 @@ x <- contam_sim_data$x
 y <- contam_sim_data$y
 ```
 
-The code below estimates $\nu$ using the profile likelihood approach using `estimate_nu_profile`. For other approaches, use
-
-- `estimate_nu_adj_profile`: Adjusted profile likelihood
-- `estimate_nu_IJ`: Full Bayes
-- `estimate_nu_nu_block`: Pseudo Bayes
+The code below estimates $\nu$ using the profile likelihood approach.
 
 Note: Please load all functions in `helper_functions.R` before proceeding to the estimation steps.
 
@@ -123,8 +112,7 @@ est_nu <- nu_estimation$nu # Optimal nu
 nu_estimation$convergence # Check convergence = 0 (if success)
 ```
 
-The code below estimates $\beta$ using the adjusted profile likelihood approach. With `estimate_beta`, the available methods include:
-"OLS", "Huber", "Profile", "Adj profile", "Full Bayes", "Pseudo Bayes", any positive integer (interpreted as a fixed nu).
+The code below estimates $\beta$ using the adjusted profile likelihood approach. 
 
 ```r
 # Estimate beta with adjusted profile likelihood approach
