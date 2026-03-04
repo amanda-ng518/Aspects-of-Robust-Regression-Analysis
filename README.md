@@ -53,10 +53,10 @@ Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.
 
 The following are the main R functions for estimating degrees of freedom ($\nu$) using four approaches with $\omega = \frac{1}{\nu}$ reparamatrization
 
-- estimate_nu_profile(): Profile likelihood  
-- `estimate_nu_adj_profile`: Adjusted profile likelihood
-- `estimate_nu_IJ`: Full Bayes
-- `estimate_nu_nu_block`: Pseudo Bayes
+- `estimate_nu_profile()`: Profile likelihood  
+- `estimate_nu_adj_profile()`: Adjusted profile likelihood
+- `estimate_nu_IJ()`: Full Bayes
+- `estimate_nu_nu_block()`: Pseudo Bayes
 
 These functions require inputs: `x`, `y` and starting point `omega_init`.
 
