@@ -13,6 +13,8 @@ The code is written in **R**. To run the scripts successfully, make sure you hav
 - **Required R packages** to run locally:
 ```r
   install.packages(c("MASS", "ggplot2"))
+  library("MASS")
+  library("ggplot2") # For visualization only
 ```
 ---
 
