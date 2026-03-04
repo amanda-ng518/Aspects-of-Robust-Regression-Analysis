@@ -1,22 +1,13 @@
 # Aspects of Robust Regression
 
-This repository contains R code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. The goal of this project is to evaluate the robustness of **degrees-of-freedom ($\nu$)** and **regression coefficient ($\beta$)** estimators under different error distributions and contamination settings.
+This repository contains R code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. 
 
 ---
 
 ## Project Overview
 
-This project compares **Bayesian** and **frequentist** approaches to robust regression through a combination of theoretical analysis and simulation studies, with an emphasis on **high-dimensional regression with regularization**.
-
-The comparison is motivated by both:
-- foundational differences in inference between Bayesian and frequentist frameworks, and  
-- the practical need to assess the reliability and robustness of Bayesian methods.  
-
-Robust regression methods help ensure that statistical conclusions remain valid even when the model used for inference deviates from the data-generating process. High-dimensional regression poses additional challenges, making **robustness** a particularly important focus in this work.
-
-In regression analysis, the primary objective is typically the estimation of the regression coefficients $\beta$, which characterize the relationship between the predictors and the response variable. In this project, we propose a two-stage procedure under the student's-*t* regression framework as follows: we first estimate the degrees of freedom parameter $\nu$, and then use this estimate to infer the regression coefficients $\beta$.
-
-We explored five Frequentist and Bayesian approaches for estimating $\nu$ under the Student's-*t* regression model and conduct simulations to evaluate their performance. From the simulations, we demonstrate that our proposed procedure yields superior estimation of $\beta$ compared to existing methods, using both simulated and real datasets. Notably, in high-dimensional settings, the adjusted profile likelihood approach performs comparably to the widely-used robust regression method, Huber regression. We also assessed the robustness of our proposed methods in the presence of outliers.
+Linear regression estimators are known to be sensitive to outliers, and one alternative to obtain a robust and efficient estimator of the regression parameter is to model the error with Student's $t$ distribution.  In this article, we compare estimators of the degrees of freedom parameter in the $t$ distribution using frequentist and Bayesian methods, and then study properties of the corresponding estimated regression coefficient. We also include the comparison with some recommended approaches in the literature, including fixing the degrees of freedom and robust regression using the Huber loss. 
+Our extensive simulations on both synthetic and real data demonstrate that estimating the degrees of freedom via the adjusted profile log-likelihood approach yields regression coefficient estimators with high accuracy, performing comparably to the maximum likelihood estimator where the degrees of freedom are fixed at their true values. These findings provide a detailed synthesis of $t$-based robust regression and underscore a key insight: the proper calibration of the degree of freedom is as crucial as the choice of the robust distribution itself for achieving optimal performance.
 
 ---
 
