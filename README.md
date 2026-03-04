@@ -1,6 +1,6 @@
 # Aspects of Robust Regression
 
-This repository contains code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. The goal of this project is to evaluate the robustness of **degrees-of-freedom ($\nu$)** and **regression coefficient ($\beta$)** estimators under different error distributions and contamination settings.
+This repository contains R code and sample data for simulations and analyses related to the **Aspects of Robust Regression** project. The goal of this project is to evaluate the robustness of **degrees-of-freedom ($\nu$)** and **regression coefficient ($\beta$)** estimators under different error distributions and contamination settings.
 
 ---
 
