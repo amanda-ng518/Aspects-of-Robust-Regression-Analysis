@@ -66,7 +66,7 @@ These $\nu$-estimation functions require inputs: `x`, `y` and starting point `om
 
 ### $\beta$-estimation
 For regression coefficient ($\beta$) estimation, use `estimate_beta()`. Aside from `x`, `y` and starting point `omega_init`, you will need to specify
-the method to conduct $\nu$ estimation. The available methods include:
+the `method` to conduct $\nu$ estimation. The available methods include:
 
 - "OLS": $\nu$ will not be estimated
 - "Huber": $\nu$ will not be estimated
