@@ -108,7 +108,7 @@ x <- contam_sim_data$x
 y <- contam_sim_data$y
 ```
 
-The code below estimates $\nu$ using the profile likelihood approach using `estimate_nu_profile`. Other approach functions include:
+The code below estimates $\nu$ using the profile likelihood approach using `estimate_nu_profile`. For other approaches, use
 
 - `estimate_nu_adj_profile`: Adjusted profile likelihood
 - `estimate_nu_IJ`: Full Bayes
