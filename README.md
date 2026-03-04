@@ -78,11 +78,11 @@ This folder includes `.Rda` files generated from simulation runs. Each subfolder
 
 | Folder | Description |
 |---------|--------------|
-| `df data/` | Results from $\nu$ estimation simulations. |
-| `beta terror data/` | Results from $\beta$ estimation under *t*-distributed errors. |
-| `beta normal error data/` | Results from $\beta$ estimation under normal errors. |
-| `beta stackloss data/` | Results from $\beta$ estimation using the Stackloss dataset. |
-| `beta contaminated error data/` | Results from $\beta$ estimation under contaminated errors. |
+| `df data` | Results from $\nu$ estimation simulations. |
+| `beta terror data` | Results from $\beta$ estimation under *t*-distributed errors. |
+| `beta normal error data` | Results from $\beta$ estimation under normal errors. |
+| `beta stackloss data` | Results from $\beta$ estimation using the Stackloss dataset. |
+| `beta contaminated error data` | Results from $\beta$ estimation under contaminated errors. |
 
 Each subfolder (e.g., `contaminated_2pterror_1`, `contaminated_2pterror_2`, etc.) contains example `.Rda` files (`allsim_1.Rda`, `allsim_2.Rda`, …, `allsim_10.Rda`) representing repeated simulation runs for robustness evaluation.
 
