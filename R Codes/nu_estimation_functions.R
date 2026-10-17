@@ -58,7 +58,7 @@ estimate_nu_adj_profile <- function(y, x, omega_init = 1/2) {
       j11 <- j11 / (fit$sigma^2)
       j12 <- matrix(0, ncol = 1, nrow = p)
       j22 <- 2 * n / (fit$sigma^2)
-      j_mat <- rbind(cbind(j11, t(j12)), cbind(j12, j22))
+      j_mat <- rbind(cbind(j11, j12), cbind(t(j12), j22))
       adj <- -0.5 * log(abs(det(j_mat)))
       - (fit$loglik + adj)
     } else {
