@@ -3,6 +3,40 @@
 # ============================================================
 # Pre-requisites: Functions in helper_functions.R must be pre-loaded.
 
+# FUNCTION: Initial Estimate of Nu
+# This function computes an initial estimate of the degrees of freedom
+# parameter nu by maximizing the profile log-likelihood over nu.
+# For each candidate nu, beta and sigma are estimated by maximum likelihood.
+#
+# INPUT: nu_true Numeric. Initial value for nu.
+# INPUT: X Numeric matrix. The design matrix (should include an intercept column).
+# INPUT: y Numeric vector. The response variable.
+# OUTPUT: par The optimized value of nu.
+# OUTPUT: value The negative profile log-likelihood at the optimum.
+# OUTPUT: convergence An integer convergence code from optim.
+#         A value of 0 indicates successful convergence.
+
+initial_nu_mle <- function(nu_true, X, y) {
+  beta_initial <- qr.solve(X, y)
+  residuals <- as.numeric(y - X %*% beta_initial)
+  sigma_initial <- sqrt(mean(residuals^2))
+  
+  nu_initial <- optim(
+    par = nu_true,
+    fn = function(nu) {
+      fit <- fit_profile_mle_fixed_nu(
+        y = y,
+        x = X,
+        nu = nu,
+        par_init = c(beta_initial, sigma_initial)
+      )
+      return(-fit$loglik)
+    },
+    method = "BFGS"
+  )
+  
+  return(nu_initial)
+}
 
 # FUNCTION: Profile Log-Likelihood Estimator 
 # This function computes the profile log-likelihood estimator for the degrees of freedom
